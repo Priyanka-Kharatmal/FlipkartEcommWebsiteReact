@@ -7,11 +7,13 @@ import Home from "./pages/Home";
 import Products from "./pages/Products";
 import AddProducts from "./pages/AddProducts";
 import Cart from "./pages/Cart";
+import TailwindCarousel from "./components/Carousel";
 
 const App = () => {
   return (
     <div>
      <Navbar/>
+     <TailwindCarousel/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
