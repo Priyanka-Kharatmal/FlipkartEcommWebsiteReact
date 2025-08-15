@@ -27,7 +27,7 @@ export default function TailwindCarousel() {
   };
 
   return (
-    <div className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-lg shadow-lg">
+    <div className="relative w-full  mx-auto overflow-hidden rounded-lg shadow-lg">
       {/* Slides */}
       <div
         className="flex transition-transform duration-700"
