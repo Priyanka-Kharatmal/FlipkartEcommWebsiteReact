@@ -63,7 +63,7 @@ const Home = () => {
       <TailwindCarousel />
       <main style={{ padding: "20px" }}>
         {renderCategory("electronics", "Best of Electronics")}
-        {renderCategory("households", "Best of Households")}
+        {renderCategory("home", "Best of Home Appliances")}
         {renderCategory("toys", "Best of Toys")}
       </main>
     </div>

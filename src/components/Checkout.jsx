@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getProducts } from "../api";
-import { useCart } from "./CartContext";
+import { useNavigate } from "react-router-dom";
 
 const ShowProduct = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProducts()
       .then((res) => {
-        const found = res.data.find((p) => p.id === id);
+        const found = res.data.find((p) => String(p.id) === String(id));
         setProduct(found);
       })
       .catch((err) => console.error(err));
@@ -26,7 +24,6 @@ const ShowProduct = () => {
     // Navigate to checkout page with product details
     navigate("/checkout", { state: { product } });
   };
-
 
   return (
     <div style={{ padding: "20px", display: "flex", gap: "20px" }}>
@@ -48,36 +45,36 @@ const ShowProduct = () => {
         <p>
           <strong>Info:</strong> {product.info}
         </p>
-        <div style={{ display: "flex", gap: "15px", marginTop: "10px" }}>
-          <button
-            onClick={() => addToCart(product)}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "orange",
-              border: "none",
-              color: "white",
-              cursor: "pointer",
-            }}
-          >
-            Add to Cart
-          </button>
 
-          <button
-            onClick={handleBuyNow}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "blue",
-              border: "none",
-              color: "white",
-              cursor: "pointer",
-            }}
-          >
-            Buy Now
-          </button>
-        </div>
+        <button
+          onClick={() => addToCart(product)}
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "orange",
+            border: "none",
+            color: "white",
+            cursor: "pointer",
+            marginTop: "10px",
+          }}
+        >
+          Add to Cart
+        </button>
+
+        <button
+          onClick={handleBuyNow}
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "blue",
+            border: "none",
+            color: "white",
+            cursor: "pointer",
+            marginTop: "10px",
+            marginLeft: "10px",
+          }}
+        >
+          Buy Now
+        </button>
       </div>
     </div>
   );
 };
-
-export default ShowProduct;

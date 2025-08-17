@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "./CartContext";
+import { useCart } from "../components/CartContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -90,9 +90,14 @@ const Navbar = () => {
           </Link>
           <Link to="/cart" className="block text-gray-700 hover:text-blue-600">
             Cart{" "}
-            {cartItems.length > 0 && (
+            {/* {cartItems.length > 0 && (
               <span className="bg-red-500 text-white px-2 py-0.5 rounded-full text-sm">
                 {cartItems.length}
+              </span>
+            )} */}
+            {totalQuantity > 0 && (
+              <span className="bg-red-500 text-white px-2 py-0.5 rounded-full text-sm">
+                {totalQuantity}
               </span>
             )}
           </Link>

@@ -3,8 +3,8 @@ import localImg1 from "../img/img1.jpg";
 
 const images = [
   { src: localImg1, interval: 3000 },
-  { src: "https://as1.ftcdn.net/jpg/03/96/22/30/1000_F_396223022_FTKz5R48RubhaMjUhE4wsibA5lde47sA.jpg", interval: 2000 },
-  { src: "https://st2.depositphotos.com/1001877/7590/i/450/depositphotos_75904895-stock-photo-home-appliances-gas-cooker-tv.jpg", interval: 5000 }
+  { src: "https://rukminim1.flixcart.com/fk-p-flap/3240/540/image/200c251f37fafb4c.jpeg?q=60", interval: 2000 },
+  { src: "https://rukminim1.flixcart.com/fk-p-flap/3240/540/image/ea89d4a7d6ceb81c.jpg?q=60", interval: 5000 }
 ];
 
 export default function TailwindCarousel() {
@@ -27,10 +27,10 @@ export default function TailwindCarousel() {
   };
 
   return (
-    <div className="relative w-full  mx-auto overflow-hidden rounded-lg shadow-lg">
+    <div className="relative w-full mx-auto overflow-hidden rounded-lg shadow-lg h-[400px]">
       {/* Slides */}
       <div
-        className="flex transition-transform duration-700"
+        className="flex transition-transform duration-700 h-full"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((img, idx) => (
@@ -38,7 +38,7 @@ export default function TailwindCarousel() {
             key={idx}
             src={img.src}
             alt={`Slide ${idx + 1}`}
-            className="w-full flex-shrink-0"
+            className="w-full h-full object-cover flex-shrink-0"
           />
         ))}
       </div>
@@ -74,4 +74,3 @@ export default function TailwindCarousel() {
     </div>
   );
 }
-
