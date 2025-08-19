@@ -10,7 +10,7 @@ const AddProducts = () => {
     category: "",
     stock: "",
     info: "",
-    image: null,
+    image: "null",
   });
 
   const navigate = useNavigate();
@@ -59,6 +59,35 @@ const AddProducts = () => {
   //   }
   // };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const res = await api.get("/products");
+  //     const newId = generateNextId(res.data);
+
+  //     let imageBase64 = "";
+  //     if (product.image) {
+  //       imageBase64 = await toBase64(product.image); // convert File → base64
+  //     }
+
+  //     const newProduct = {
+  //       ...product,
+  //       id: newId,
+  //       image: imageBase64, // store as string
+  //     };
+
+  //     await api.post("/products", newProduct);
+
+  //     navigate("/products", {
+  //       state: { toast: "Product added successfully!" },
+  //     });
+  //   } catch (err) {
+  //     console.error("Error adding product:", err);
+  //     alert("Failed to add product.");
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -66,15 +95,9 @@ const AddProducts = () => {
       const res = await api.get("/products");
       const newId = generateNextId(res.data);
 
-      let imageBase64 = "";
-      if (product.image) {
-        imageBase64 = await toBase64(product.image); // convert File → base64
-      }
-
       const newProduct = {
         ...product,
         id: newId,
-        image: imageBase64, // store as string
       };
 
       await api.post("/products", newProduct);
@@ -89,14 +112,14 @@ const AddProducts = () => {
   };
 
   // helper
-  const toBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
-  };
+  // const toBase64 = (file) => {
+  //   return new Promise((resolve, reject) => {
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => resolve(reader.result);
+  //     reader.onerror = (error) => reject(error);
+  //   });
+  // };
 
   return (
     <div className="max-w-3xl mx-auto mt-10 bg-white p-8 shadow-lg rounded-xl">
@@ -122,6 +145,23 @@ const AddProducts = () => {
              cursor-pointer"
           />
         </div>
+
+        {/* <div>
+          <label className="block text-gray-700 font-medium mb-2">
+            Product Image URL
+          </label>
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
+            placeholder="https://example.com/product.jpg"
+            value={product.image || ""}
+            onChange={handleChange}
+            className="w-full border px-3 py-2"
+          />
+        </div> */}
+
+        
 
         <input
           type="text"

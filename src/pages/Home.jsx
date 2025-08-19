@@ -39,7 +39,7 @@ const Home = () => {
                   background: "#fff",
                 }}
               >
-                <img
+                {/* <img
                   src={item.image?.url || "https://via.placeholder.com/150"}
                   alt={item.name}
                   style={{
@@ -47,7 +47,24 @@ const Home = () => {
                     height: "150px",
                     objectFit: "cover",
                   }}
+                /> */}
+
+                {/* <img
+                  src={item.image || "https://via.placeholder.com/150"}
+                  alt={item.name}
+                  style={{ width: "100%", height: "150px", objectFit: "cover" }}
+                /> */}
+
+                <img
+                  src={item.image || "https://via.placeholder.com/300"}
+                  alt={item.name}
+                  style={{
+                    width: "300px",
+                    height: "300px",
+                    objectFit: "cover",
+                  }}
                 />
+
                 <h4>{item.name}</h4>
                 <p>₹{item.price}</p>
               </div>
@@ -65,6 +82,8 @@ const Home = () => {
         {renderCategory("electronics", "Best of Electronics")}
         {renderCategory("home", "Best of Home Appliances")}
         {renderCategory("toys", "Best of Toys")}
+        {renderCategory("books", "Best of Books")}
+        {renderCategory("fashion", "Best of Fashion")}
       </main>
     </div>
   );

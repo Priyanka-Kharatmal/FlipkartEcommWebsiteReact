@@ -63,7 +63,7 @@ const ManageProducts = () => {
               <tr key={product.id} style={{ borderBottom: "1px solid #ccc" }}>
                 <td style={tdStyle}>
                   <img
-                    src={product.image?.url || "https://via.placeholder.com/50"}
+                    src={product.image || "https://via.placeholder.com/50"}
                     alt={product.name}
                     style={{ width: "50px", height: "50px", objectFit: "cover" }}
                   />
